@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Student Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f8f8f8;
+    }
+    header {
+        background: white;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ddd;
+    }
+    nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: black;
+    }
+    .search-box {
+        display: flex;
+        align-items: center;
+    }
+    .search-box input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px 0 0 5px;
+    }
+    .search-box button {
+        padding: 6px 12px;
+        border: 1px solid #28a745;
+        background-color: white;
+        color: #28a745;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+    }
+    main {
+        max-width: 1000px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-container {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 20px;
+    }
+    .profile-upload {
+        text-align: center;
+    }
+    .profile-upload img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: #ddd;
+        display: block;
+        margin: auto;
+    }
+    .profile-upload input {
+        margin-top: 10px;
+        padding: 5px;
+        border: 1px solid red;
+        border-radius: 5px;
+        width: 200px;
+    }
+    form {
+        display: grid;
+        grid-template-columns: repeat(3, 280px);
+        gap: 15px 20px;
+        justify-content: start;
+    }
+    label {
+        font-weight: bold;
+        font-size: 14px;
+        display: block;
+        margin-bottom: 3px;
+    }
+    input, select {
+        padding: 8px;
+        border: 1px solid red;
+        border-radius: 5px;
+        width: 100%;
+        box-sizing: border-box;
+        outline: none;
+    }
+    input.valid, select.valid {
+        border-color: green;
+    }
+    .error-message {
+        font-size: 12px;
+        color: red;
+    }
+    .valid-message {
+        font-size: 12px;
+        color: green;
+    }
+    .full-width {
+        grid-column: span 3;
+        text-align: left;
+    }
+    .add-btn {
+        background: #28a745;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>{Group No.}</h1>
+    <nav>
+        <a href="#">Students</a>
+        <a href="#">Attendance</a>
+        <a href="#">Form</a>
+    </nav>
+    <div class="search-box">
+        <input type="text" placeholder="Search">
+        <button>Search</button>
+    </div>
+</header>
+
+<main>
+    <h2>Add Student Form</h2>
+    <div class="form-container">
+        <!-- Profile Section -->
+        <div class="profile-upload">
+            <img src="" alt="Profile Picture">
+            <input type="file">
+        </div>
+
+        <!-- Form Fields -->
+        <form id="studentForm" novalidate>
+            <div>
+                <label>Last Name</label>
+                <input type="text" name="lastname" placeholder="ex. Juan" required>
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>First Name</label>
+                <input type="text" name="firstname" placeholder="ex. Dela Cruz" required>
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Middle Name</label>
+                <input type="text" name="middlename" placeholder="ex. Cruz">
+                <div class="valid-message">Optional</div>
+            </div>
+
+            <div>
+                <label>Gender</label>
+                <div>
+                    <input type="radio" name="gender" required> Male
+                    <input type="radio" name="gender" required> Female
+                </div>
+            </div>
+            <div>
+                <label>Civil Status</label>
+                <select name="status" class="valid" required>
+                    <option>Single</option>
+                </select>
+                <div class="valid-message">Valid</div>
+            </div>
+            <div>
+                <label>Date of Birth</label>
+                <input type="date" name="dob" required>
+                <div class="error-message">Required</div>
+            </div>
+
+            <div>
+                <label>Place of Birth</label>
+                <input type="text" name="birthplace" placeholder="ex. Tarlac City" required>
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Nationality</label>
+                <input type="text" name="nationality" placeholder="ex. Filipino" required>
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Religion</label>
+                <input type="text" name="religion" placeholder="ex. Roman Catholic" required>
+                <div class="error-message">Required</div>
+            </div>
+
+            <div>
+                <label>Contact No.</label>
+                <input type="text" name="contact" placeholder="09XXXXXXXX" pattern="^09\d{9}$" required>
+                <div class="error-message">Invalid Pattern</div>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" name="email" placeholder="ex. JuanD@email.com" required>
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Street</label>
+                <input type="text" name="street" placeholder="ex. 85th Subd." required>
+                <div class="error-message">Required</div>
+            </div>
+
+            <div>
+                <label>Barangay</label>
+                <input type="text" name="barangay" placeholder="ex. Sto. Rosario" required>
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>City</label>
+                <input type="text" name="city" placeholder="ex. Capas" required>
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Province</label>
+                <input type="text" name="province" placeholder="ex. Tarlac" required>
+                <div class="error-message">Required</div>
+            </div>
+
+            <div class="full-width">
+                <button type="submit" class="add-btn">Add Student</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("studentForm");
+    const inputs = form.querySelectorAll("input[required], select[required]");
+
+    inputs.forEach(input => {
+        input.addEventListener("input", () => {
+            const errorMsg = input.nextElementSibling;
+            if (input.type === "radio") return; // skip radios
+            if (input.checkValidity()) {
+                input.classList.add("valid");
+                input.classList.remove("invalid");
+                errorMsg.textContent = "Valid";
+                errorMsg.className = "valid-message";
+            } else {
+                input.classList.remove("valid");
+                errorMsg.textContent = input.validationMessage;
+                errorMsg.className = "error-message";
+            }
+        });
+    });
+
+    form.addEventListener("submit", e => {
+        e.preventDefault();
+        let valid = true;
+        inputs.forEach(input => {
+            if (!input.checkValidity()) {
+                valid = false;
+                const errorMsg = input.nextElementSibling;
+                input.classList.remove("valid");
+                errorMsg.textContent = input.validationMessage;
+                errorMsg.className = "error-message";
+            }
+        });
+        if (valid) {
+            alert("Student Added Successfully!");
+            form.reset();
+            inputs.forEach(i => i.classList.remove("valid"));
+        }
+    });
+});
+</script>
+
+</body>
+</html>
