@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Students / Attendance Cards</title>
+  <style>
+    :root{
+      --bg: #f6f8fa;
+      --card-bg: #fff;
+      --muted: #6b7280;
+      --blue: #1f6feb;
+      --green: #15803d;
+      --red: #dc2626;
+      --border: #e6e9ee;
+      --shadow: 0 6px 18px rgba(11,20,40,0.06);
+      --radius: 8px;
+      --gap: 18px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      background: linear-gradient(180deg, var(--bg) 0%, #ffffff 100%);
+      color: #111827;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 28px auto;
+      padding: 28px;
+    }
+
+    header {
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      margin-bottom: 18px;
+    }
+
+    header h1 {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-size:20px;
+      margin:0;
+    }
+
+    .badge {
+      min-width:28px;
+      height:24px;
+      display:inline-grid;
+      place-items:center;
+      padding:0 8px;
+      background:var(--blue);
+      color:white;
+      border-radius:6px;
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* Section title */
+    .section {
+      margin-top: 22px;
+    }
+    .section-title {
+      display:flex;
+      align-items:center;
+      gap:12px;
+      margin: 6px 4px 12px;
+      font-size:18px;
+      font-weight:700;
+    }
+
+    /* small colored square left of title */
+    .status-pill {
+      width:14px;
+      height:14px;
+      border-radius:3px;
+      box-shadow: 0 1px 0 rgba(0,0,0,0.05) inset;
+    }
+    .status-pupil-blue { background: var(--blue); }
+    .status-pupil-green { background: var(--green); }
+    .status-pupil-red { background: var(--red); }
+
+    /* grid */
+    .grid {
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px,1fr));
+      gap: var(--gap);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      border: 2px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height: 230px;
+      box-sizing:border-box;
+      position:relative;
+    }
+
+    .card .avatar {
+      width:100%;
+      height:120px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background: linear-gradient(180deg,#e9edf5,#f3f6fb);
+      border-radius:6px;
+    }
+
+    .avatar .circle {
+      width:64px;
+      height:64px;
+      border-radius:50%;
+      background:#cbd5e1;
+      display:inline-block;
+    }
+
+    .card .meta {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:12px;
+    }
+
+    .card .meta .info {
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+
+    .name {
+      font-weight:700;
+      font-size:14px;
+      color:#0f172a;
+    }
+    .id {
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .card .actions {
+      margin-top:auto;
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+    }
+
+    .btn {
+      border: none;
+      padding:8px 12px;
+      border-radius:6px;
+      font-weight:600;
+      cursor:pointer;
+      font-size:13px;
+    }
+
+    .btn-blue { background:var(--blue); color:white; }
+    .btn-green { background:var(--green); color:white; }
+    .btn-red { background:var(--red); color:white; }
+
+    /* colored border at top to mimic the image */
+    .card.top-blue { box-shadow: var(--shadow); border-left:2px solid #e6e9ee; border-right:2px solid #e6e9ee; border-bottom:2px solid var(--border); }
+    .card.top-blue::before { content:""; position:absolute; left:0; right:0; height:4px; top:0; border-top-left-radius:6px; border-top-right-radius:6px; background:var(--blue); }
+
+    .card.top-green::before { content:""; position:absolute; left:0; right:0; height:4px; top:0; border-top-left-radius:6px; border-top-right-radius:6px; background:var(--green); }
+
+    .card.top-red::before { content:""; position:absolute; left:0; right:0; height:4px; top:0; border-top-left-radius:6px; border-top-right-radius:6px; background:var(--red); }
+
+    /* small red vertical divider used on some cards in the image (optional) */
+    .card.small-divider::after { content:""; position:absolute; right:0; top:8px; bottom:8px; width:3px; background:rgba(0,0,0,0.04); border-radius:2px; }
+
+    /* responsive tweaks */
+    @media (max-width:560px){
+      .page { padding:16px; }
+      .avatar { height:100px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <h1>
+        Students
+        <span class="badge">3</span>
+      </h1>
+
+      <!-- small site nav area (placeholder) -->
+      <nav style="font-size:14px;color:var(--muted);">Attendance dashboard</nav>
+    </header>
+
+    <!-- STUDENTS (blue) -->
+    <section class="section">
+     
