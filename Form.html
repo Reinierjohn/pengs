@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Student Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background-color: #f8f8f8;
+    }
+    header {
+        background: white;
+        padding: 15px 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid #ddd;
+    }
+    header h1 {
+        font-size: 20px;
+        margin: 0;
+    }
+    nav a {
+        margin: 0 10px;
+        text-decoration: none;
+        color: black;
+    }
+    .search-box {
+        display: flex;
+        align-items: center;
+    }
+    .search-box input {
+        padding: 5px;
+        border: 1px solid #ccc;
+        border-radius: 5px 0 0 5px;
+    }
+    .search-box button {
+        padding: 6px 12px;
+        border: 1px solid #28a745;
+        background-color: white;
+        color: #28a745;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+    }
+    main {
+        max-width: 1100px;
+        margin: auto;
+        background: white;
+        padding: 20px;
+        margin-top: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    .form-container {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 20px;
+    }
+    .profile-upload {
+        text-align: center;
+    }
+    .profile-upload img {
+        width: 180px;
+        height: 180px;
+        border-radius: 50%;
+        background: #ddd;
+        display: block;
+        margin: auto;
+    }
+    .profile-upload input {
+        margin-top: 10px;
+        padding: 5px;
+        border: 1px solid red;
+        border-radius: 5px;
+    }
+    form {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+    label {
+        font-weight: bold;
+        font-size: 14px;
+    }
+    input, select {
+        padding: 8px;
+        border: 1px solid red;
+        border-radius: 5px;
+        width: 100%;
+    }
+    .valid {
+        border-color: green;
+    }
+    .error-message {
+        font-size: 12px;
+        color: red;
+    }
+    .full-width {
+        grid-column: span 3;
+    }
+    .add-btn {
+        background: #28a745;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>{Group No.}</h1>
+    <nav>
+        <a href="#">Students</a>
+        <a href="#">Attendance</a>
+        <a href="#">Form</a>
+    </nav>
+    <div class="search-box">
+        <input type="text" placeholder="Search">
+        <button>Search</button>
+    </div>
+</header>
+
+<main>
+    <h2>Add Student Form</h2>
+    <div class="form-container">
+        <!-- Profile Section -->
+        <div class="profile-upload">
+            <img src="" alt="Profile Picture">
+            <input type="file">
+        </div>
+
+        <!-- Form Fields -->
+        <form>
+            <div>
+                <label>Last Name</label>
+                <input type="text" placeholder="ex. Juan">
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>First Name</label>
+                <input type="text" placeholder="ex. Dela Cruz">
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Middle Name</label>
+                <input type="text" class="valid" placeholder="ex. Cruz">
+            </div>
+
+            <div>
+                <label>Gender</label>
+                <div>
+                    <input type="radio" name="gender"> Male
+                    <input type="radio" name="gender"> Female
+                </div>
+            </div>
+            <div>
+                <label>Civil Status</label>
+                <select class="valid">
+                    <option>Single</option>
+                </select>
+            </div>
+            <div>
+                <label>Date of Birth</label>
+                <input type="date">
+                <div class="error-message">Required</div>
+            </div>
+
+            <div>
+                <label>Place of Birth</label>
+                <input type="text" placeholder="ex. Tarlac City">
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Nationality</label>
+                <input type="text" placeholder="ex. Filipino">
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Religion</label>
+                <input type="text" placeholder="ex. Roman Catholic">
+                <div class="error-message">Required</div>
+            </div>
+
+            <div>
+                <label>Contact No.</label>
+                <input type="text" placeholder="09XXXXXXXX">
+                <div class="error-message">Invalid Pattern</div>
+            </div>
+            <div>
+                <label>Email</label>
+                <input type="email" placeholder="ex. JuanD@email.com">
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Street</label>
+                <input type="text" placeholder="ex. 85th Subd.">
+                <div class="error-message">Required</div>
+            </div>
+
+            <div>
+                <label>Barangay</label>
+                <input type="text" placeholder="ex. Sto. Rosario">
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>City</label>
+                <input type="text" placeholder="ex. Capas">
+                <div class="error-message">Required</div>
+            </div>
+            <div>
+                <label>Province</label>
+                <input type="text" placeholder="ex. Tarlac">
+                <div class="error-message">Required</div>
+            </div>
+
+            <div class="full-width">
+                <button type="submit" class="add-btn">Add Student</button>
+            </div>
+        </form>
+    </div>
+</main>
+
+</body>
+</html>
